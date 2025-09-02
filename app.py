@@ -17,7 +17,7 @@ st.write("身長と体重を入力することで、肥満度を表す体型指�
 # ダミーの未選択オプションを先頭に置き、選択されるまで入力欄を非表示にします.
 # 専門家A（料理研究家）/Expert A と 専門家B（教育アドバイザー）/Expert B のプロンプトは後段で条件分岐します.
 options = ["— 選択してください —", "料理について", "教育について"]
-selected_item = st.radio("質問したい分野を選択してください。", options)
+selected_item = st.radio("###質問したい分野を選択してください。###", options)
 
 # 区切り線
 st.divider()
@@ -39,15 +39,13 @@ if selected_item != options[0]:
         system_message = "You are an education advisor grounded in learning science. You assume Japanese learners as your audience, and you provide step-by-step support tailored to their level—breaking concepts down and guiding them from understanding, to practice, to mastery."
 
     input_key = key_map[selected_item]
-    st.text_input(label="質問してみましょう", key=input_key)
+    st.text_input(label="###質問してみましょう###", key=input_key)
 
-# 送信可否の判定（選択済み かつ 入力が空でない）
+# 現在トピックの入力値
 current_text = st.session_state.get(input_key, "") if input_key else ""
 input_filled = bool(current_text.strip())
-can_submit = (selected_item != options[0]) and input_filled
 
-
-if st.button("実行", disabled=not can_submit):
+if st.button("実行"):
     # 区切り線
     st.divider()
 
