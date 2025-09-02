@@ -46,9 +46,6 @@ current_text = st.session_state.get(input_key, "") if input_key else ""
 input_filled = bool(current_text.strip())
 can_submit = (selected_item != options[0]) and input_filled
 
-# 入力未完了のときのエラー表示（分野は選択済みだが入力が空の場合のみ）
-if (selected_item != options[0]) and not input_filled:
-    st.error("なにか質問を入力してください。")
 
 if st.button("実行", disabled=not can_submit):
     # 区切り線
