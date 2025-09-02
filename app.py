@@ -1,6 +1,7 @@
 import streamlit as st
 from dotenv import load_dotenv
-
+from langchain_openai import ChatOpenAI
+from langchain.schema import SystemMessage, HumanMessage
 # 環境変数を読み込む
 load_dotenv()
 
@@ -50,3 +51,19 @@ if st.button("実行"):
 
         else:
             st.error("身長と体重をどちらも入力してください。")
+
+# 区切り線
+st.divider()
+
+# LLM機能を搭載したWebアプリ
+
+
+llm = ChatOpenAI(model_name="gpt-4o-mini", temperature=0.5)
+
+messages = [
+    SystemMessage(content="You are a helpful assistant."),
+    HumanMessage(content="日本の首都を教えてください。"),
+]
+
+result = llm(messages)
+st.write(f"回答: {result.content}")
