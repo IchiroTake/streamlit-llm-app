@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 # 環境変数を読み込む
 load_dotenv()
 
-st.title("Chapter 6 【提出課題】LLM機能を搭載したWebアプリ")
+st.title("Lesson21 - Chapter 6 【提出課題】LLM機能を搭載したWebアプリ")
 
 st.write("##### 動作モード1: 文字数カウント")
 st.write("入力フォームにテキストを入力し、「実行」ボタンを押すことで文字数をカウントできます。")
